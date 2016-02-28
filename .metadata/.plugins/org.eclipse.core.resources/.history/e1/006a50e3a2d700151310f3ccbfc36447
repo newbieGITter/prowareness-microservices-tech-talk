@@ -1,0 +1,5 @@
+package com.prowareness.example.configuration;
+
+public class RestConfiguration {
+
+}

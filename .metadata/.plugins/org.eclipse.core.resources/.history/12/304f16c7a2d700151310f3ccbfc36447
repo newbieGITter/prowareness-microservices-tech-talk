@@ -1,0 +1,77 @@
+package com.prowareness.example.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.prowareness.example.domain.Product;
+
+@RestController
+public class OrderController {
+
+	private static List<Product> products = new ArrayList<Product>();
+	private static final Logger LOGGER = LoggerFactory.getLogger(OrderController.class);
+
+	static {
+		Product product1 = new Product();
+		product1.setId(1);
+		product1.setSku("abcd1");
+		product1.setDescription("product1");
+
+		Product product2 = new Product();
+		product2.setId(2);
+		product2.setSku("abcd2");
+		product2.setDescription("product2");
+
+		Product product3 = new Product();
+		product3.setId(3);
+		product3.setSku("abcd3");
+		product3.setDescription("product3");
+
+		Product product4 = new Product();
+		product4.setId(4);
+		product4.setSku("abcd4");
+		product4.setDescription("product4");
+
+		products.add(product1);
+		products.add(product2);
+		products.add(product3);
+		products.add(product4);
+	}
+
+	@RequestMapping(value = "/products", method = RequestMethod.GET, produces = "application/json")
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	@RequestMapping(value = "/product/{id}", method = RequestMethod.GET, produces = "application/json")
+	public Product getProductById(@PathVariable("id") long id) {
+		Product prod = null;
+		for (Product product : products) {
+			if (product.getId() == id)
+				prod = product;
+		}
+		return prod;
+	}
+
+	// Format of the request: http://localhost:8081/Product?id={id}
+	@RequestMapping(value = "/product", method = RequestMethod.GET, produces = "application/json")
+	public @ResponseBody Product getProduct(@RequestParam("id") long id) {
+		LOGGER.debug("On port 8081, received request in ProductController.getProduct; " + "& id is " + id);
+		Product cli = null;
+		for (Product c : products) {
+			if (c.getId() == id)
+				cli = c;
+		}
+		return cli;
+	}
+
+}

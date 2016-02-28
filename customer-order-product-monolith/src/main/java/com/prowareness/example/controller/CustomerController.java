@@ -1,0 +1,99 @@
+package com.prowareness.example.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.prowareness.example.domain.Customer;
+
+@RestController
+public class CustomerController {
+
+	private static List<Customer> customers = new ArrayList<Customer>();
+	private static final Logger LOGGER = LoggerFactory.getLogger(CustomerController.class);
+
+	@RequestMapping(value = "/customers", method = RequestMethod.GET, produces = "application/json")
+	public List<Customer> getCustomers() {
+		return customers;
+	}
+
+	@RequestMapping(value = "/customer/{id}", method = RequestMethod.GET, produces = "application/json")
+	public Customer getCustomerById(@PathVariable("id") long id) {
+		Customer cli = null;
+		for (Customer c : customers) {
+			if (c.getId() == id)
+				cli = c;
+		}
+		return cli;
+	}
+
+	// Format of the request: http://localhost:8081/customer?id={id}
+	@RequestMapping(value = "/customer", method = RequestMethod.GET, produces = "application/json")
+	public @ResponseBody Customer getCustomer(@RequestParam("id") long id) {
+		LOGGER.debug("On port 8081, received request in CustomerController.getCustomer; " + "& id is " + id);
+		Customer cli = null;
+		for (Customer c : customers) {
+			if (c.getId() == id)
+				cli = c;
+		}
+		return cli;
+	}
+
+	// Format of the request: http://localhost:8081/customer/id
+	@RequestMapping(value = "/customer/{id}", method = RequestMethod.DELETE)
+	public HttpEntity<?> delete(@PathVariable long id) {
+		Customer cli = null;
+		for (Customer c : customers) {
+			if (c.getId() == id)
+				cli = c;
+		}
+
+		customers.remove(cli);
+		return new ResponseEntity<>(HttpStatus.ACCEPTED);
+	}
+	
+	static {
+		Customer customer1 = new Customer();
+		customer1.setId(1);
+		customer1.setName("Customer1");
+		customer1.setEmail("customer1@gmail.com");
+
+		Customer customer2 = new Customer();
+		customer2.setId(2);
+		customer2.setName("Customer2");
+		customer2.setEmail("customer2@gmail.com");
+
+		Customer customer3 = new Customer();
+		customer3.setId(3);
+		customer3.setName("Customer3");
+		customer3.setEmail("customer3@gmail.com");
+
+		Customer customer4 = new Customer();
+		customer4.setId(4);
+		customer4.setName("Customer4");
+		customer4.setEmail("customer4@gmail.com");
+
+		Customer customer5 = new Customer();
+		customer5.setId(5);
+		customer5.setName("Customer5");
+		customer5.setEmail("customer1@gmail.com");
+
+		customers.add(customer1);
+		customers.add(customer2);
+		customers.add(customer3);
+		customers.add(customer4);
+		customers.add(customer5);
+	}
+
+}

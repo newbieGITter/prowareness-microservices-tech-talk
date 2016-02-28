@@ -1,0 +1,52 @@
+package com.prowareness.example.controller;
+
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.validation.Valid;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.prowareness.example.domain.ProductDetail;
+import com.prowareness.example.exception.ProductDetailsAlreadyExistsException;
+import com.prowareness.example.service.ProductDetailService;
+
+@RestController
+@RequestMapping("/products")
+public class ProductDetailController {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProductDetailController.class);
+    private final ProductDetailService productDetailService;
+
+    @Inject
+    public ProductDetailController(final ProductDetailService productDetailService) {
+        this.productDetailService = productDetailService;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
+    public ProductDetail createUser(@RequestBody @Valid final ProductDetail productDetail) {
+        LOGGER.debug("Received request to create the {}", productDetail);
+        return productDetailService.save(productDetail);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public List<ProductDetail> listAllProductDetails() {
+        LOGGER.debug("Received request to list all users");
+        return productDetailService.getAllProductDetail();
+    }
+
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public String handleProductDetailsAlreadyExistsException(ProductDetailsAlreadyExistsException e) {
+        return e.getMessage();
+    }
+
+}

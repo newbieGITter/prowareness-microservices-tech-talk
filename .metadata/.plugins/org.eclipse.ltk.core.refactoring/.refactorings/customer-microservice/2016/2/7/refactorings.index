@@ -1,0 +1,17 @@
+1455950245078	Move compilation unit
+1455950251245	Delete element
+1455950256710	Move compilation unit
+1455950263538	Move compilation unit
+1455950268920	Delete elements
+1455950772942	Rename type 'UserAlreadyExistsException'
+1455950861934	Delete element
+1455950904107	Rename type 'UserUtil'
+1455951029595	Rename method 'createUser'
+1455951038052	Rename method 'createUserList'
+1455951066987	Rename method 'stubServiceToReturnStoredUser'
+1455951090698	Rename local variable 'returnedUser'
+1455951229229	Delete elements
+1455952859359	Copy compilation unit
+1456096856721	Copy packages
+1456096862515	Copy files
+1456096872654	Copy file

@@ -1,0 +1,22 @@
+1456090880540	Rename package 'database'
+1456090897665	Copy compilation units
+1456090902050	Delete element
+1456090916475	Delete elements
+1456090920718	Delete element
+1456090937965	Delete element
+1456090947601	Delete elements
+1456090958426	Delete elements
+1456090963181	Copy compilation unit
+1456090981266	Rename package 'service'
+1456090988178	Delete element
+1456091030484	Rename type 'ProfileService'
+1456091062632	Rename field 'profiles'
+1456091204876	Rename local variable 'profile'
+1456091222476	Rename local variable 'profileName'
+1456091230789	Rename method 'getAllProfiles'
+1456091456039	Rename type 'ProfileResource'
+1456091785440	Rename field 'profileService'
+1456092319682	Delete elements
+1456092682125	Delete elements
+1456092716404	Delete element
+1456092738224	Rename package 'com.prowareness.example.controller'

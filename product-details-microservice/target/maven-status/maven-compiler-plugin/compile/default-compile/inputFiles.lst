@@ -1,0 +1,11 @@
+C:\Users\RK82TR\Workspace\Microservices\product-details-microservice\src\main\java\com\prowareness\example\exception\ProductDetailsAlreadyExistsException.java
+C:\Users\RK82TR\Workspace\Microservices\product-details-microservice\src\main\java\com\prowareness\example\validator\ProductDetailValidator.java
+C:\Users\RK82TR\Workspace\Microservices\product-details-microservice\src\main\java\com\prowareness\example\domain\ProductDetail.java
+C:\Users\RK82TR\Workspace\Microservices\product-details-microservice\src\main\java\com\prowareness\example\exception\ProductNotFoundException.java
+C:\Users\RK82TR\Workspace\Microservices\product-details-microservice\src\main\java\com\prowareness\example\service\ProductDetailService.java
+C:\Users\RK82TR\Workspace\Microservices\product-details-microservice\src\main\java\com\prowareness\example\service\ProductDetailServiceImpl.java
+C:\Users\RK82TR\Workspace\Microservices\product-details-microservice\src\main\java\com\prowareness\example\controller\ProductDetailController.java
+C:\Users\RK82TR\Workspace\Microservices\product-details-microservice\src\main\java\com\prowareness\example\service\InventoryServiceImpl.java
+C:\Users\RK82TR\Workspace\Microservices\product-details-microservice\src\main\java\com\prowareness\example\service\InventoryService.java
+C:\Users\RK82TR\Workspace\Microservices\product-details-microservice\src\main\java\com\prowareness\example\Application.java
+C:\Users\RK82TR\Workspace\Microservices\product-details-microservice\src\main\java\com\prowareness\example\repository\ProductDetailRepository.java

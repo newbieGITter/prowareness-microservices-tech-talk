@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="product-details-microservice"/>
+<aop-project name="customer-microservice"/>
+<aop-project name="order-microservice"/>
+<aop-project name="microservice-demo"/>
+</aop-reference-model>

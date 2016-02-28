@@ -1,0 +1,5 @@
+package com.prowareness.example.service;
+
+public class InventoryService {
+
+}
